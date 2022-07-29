@@ -1,4 +1,8 @@
 # Detect if a string is or not "palindromo" - with accent-
+
+#requirements
+#pip install unidecode
+
 import unidecode
 
 def is_palindromo(user_text):
