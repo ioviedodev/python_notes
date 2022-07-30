@@ -1,4 +1,5 @@
 # Game guess the number
+import random
 
 # Constants
 NUMBER_HIDE         =   45
@@ -7,11 +8,12 @@ CONTINUE_TRYING     =   -1
 
 def run():
     print("---Game guess the number---")
-  
-    while True:
+    number_hide=random.randint(1,100)
+
+    while True:    
         number=validate_number()
         print("number: ",number)
-        result=check_guess_number(number,NUMBER_HIDE)
+        result=check_guess_number(number,number_hide)
         if(result==GUESS):
             break
 
