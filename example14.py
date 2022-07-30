@@ -1,5 +1,4 @@
-# Use of list
-# TODO:Create a program that let the user add data to the memory or delete
+# Create a program that let the user add data to the memory or delete -Use of list-
 
 def manage_op1_menu(ram_memory):
     data="0"
