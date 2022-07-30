@@ -2,7 +2,6 @@
 import random
 
 # Constants
-NUMBER_HIDE         =   45
 GUESS               =   0   
 CONTINUE_TRYING     =   -1   
 
@@ -40,3 +39,4 @@ def check_guess_number(number,number_to_guess):
 
 if __name__=='__main__':
     run()
+    
