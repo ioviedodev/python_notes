@@ -10,7 +10,6 @@ NUMBERS                         = "NN"
 INDEX_CATEGORY_CURRENT_ID       = 0
 INDEX_CATEGORY_CURRENT_VALUE    = 1
 
-force_mode                      = True
 index_current_count_lst         = 0
 removed_categories              = []
 
@@ -26,6 +25,8 @@ categories_fixed    = [SPECIAL_CHARACTER, LETTER_UPPERCASE, NUMBERS, LETTER_LOWE
 constraints         = { SPECIAL_CHARACTER:2, LETTER_UPPERCASE:5, NUMBERS:2, LETTER_LOWERCASE:5}             #Dictionary
 #Current contraint count
 current_count_lst   = [[SPECIAL_CHARACTER,0],[LETTER_UPPERCASE,0],[NUMBERS,0],[LETTER_LOWERCASE,0]]         #List
+
+
 
 def get_current_count_lst(categories,current_count_lst,index_category):
     global index_current_count_lst
@@ -43,7 +44,6 @@ def check_is_category_needed(index_category,categories,constraints,current_count
     key             = categories[index_category]
     requirment      = constraints[key]
     current_count   = get_current_count_lst(categories,current_count_lst,index_category)
-    global force_mode
 
     if(current_count<requirment):
         return True
@@ -52,7 +52,6 @@ def check_is_category_needed(index_category,categories,constraints,current_count
             removed_categories.append(index_category)     
             return False
         else:
-            force_mode = False
             if(len(password)<LEN_PASSWORD):
                 return True
             else: 
@@ -89,7 +88,12 @@ def get_random_char(categories,index_random_category):
 
     return char_random 
 
-def key_generation(password,constraints,categories, current_count_lst):
+def show_count_chars(current_count_lst):
+    for category in current_count_lst:
+        message ="Category ID: %s Count: %i" % (category[INDEX_CATEGORY_CURRENT_ID],category[INDEX_CATEGORY_CURRENT_VALUE])
+        print(message) 
+
+def password_generation(password,constraints,categories, current_count_lst):
     global index_current_count_lst
     category_needed     =   True
  
@@ -111,12 +115,14 @@ def run():
     password_str=""
     print("constraints: ",constraints)
     
-
-    key_generation(password, constraints, categories_mirror, current_count_lst)
+    password_generation(password, constraints, categories_mirror, current_count_lst)
     password_str="".join(password)
-    print("PASSWORD: ",password_str)
+    print("\nPASSWORD: ",password_str)
+    print("\n*----------Overview----------*")    
     print("LEN_PASSWORD: ", len(password_str))
-    print("current_count_lst: ",current_count_lst)
+    show_count_chars(current_count_lst)
+    print("*---------End Results---------*")
+
 
 if __name__=='__main__':
     run()
