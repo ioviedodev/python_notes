@@ -1,4 +1,6 @@
 # Detect if a string is or not "palindromo"
+# + Static typed
+
 def check_palindromo(user_text: str) -> bool:
     user_text=user_text.replace(" ","")
     user_text=user_text.lower()
