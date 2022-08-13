@@ -14,8 +14,8 @@ def run():
     print("Use of closure")
 
     print("Text repeater")
-    repeater_of_5=repeater(5)
-    print(repeater_of_5("You can!"))
+    repeater_5_times=repeater(5)
+    print(repeater_5_times("You can!"))
 
     print("Division by 5")
     division_by_5=set_divider(5)
